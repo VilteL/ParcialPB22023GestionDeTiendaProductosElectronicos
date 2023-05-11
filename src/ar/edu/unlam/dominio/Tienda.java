@@ -38,4 +38,13 @@ public class Tienda {
 			else throw new noHayProductosEnElCarritoException();
 		} //agregar excepcion en caso de que el cliente no este en el array de clientes.
 	}
+	
+	public Cliente buscarClientePorNombre(Cliente clienteABuscar) throws clienteNoEncontradoException {
+		for (Cliente cliente : clientes){
+			if(cliente.equals(clienteABuscar)) {
+				return cliente;
+			}
+		}
+		throw new clienteNoEncontradoException();
+	}
 }

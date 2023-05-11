@@ -14,7 +14,7 @@ public class Producto {
 		
 		cantidadDeProductosCreados++;
 	}
-
+	
 	public Integer getCodProducto() {
 		return codProducto;
 	}
