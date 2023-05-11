@@ -28,7 +28,7 @@ public class Cliente {
 		this.direccion = direccion;
 	}
 
-	public ArrayList<Producto> getListaDeProductosComprados() {
+	public ArrayList <Producto> getListaDeProductosComprados() {
 		return listaDeProductosComprados;
 	}
 
@@ -36,7 +36,7 @@ public class Cliente {
 		this.listaDeProductosComprados = listaDeProductosComprados;
 	}
 
-	public ArrayList<Producto> getCarrito() {
+	public ArrayList <Producto> getCarrito() {
 		return carrito;
 	}
 
