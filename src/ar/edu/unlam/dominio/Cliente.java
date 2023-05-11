@@ -10,6 +10,8 @@ public class Cliente {
 	public Cliente(String nombre, String direccion) {
 		this.nombre = nombre;
 		this.direccion = direccion;
+		this.listaDeProductosComprados = new ArrayList<>();
+		this.carrito = new ArrayList<>();
 	}
 
 	public String getNombre() {
@@ -46,5 +48,8 @@ public class Cliente {
 	
 	public Boolean agregarProductoAlCarrito (Producto producto) {
 		return carrito.add(producto);
+	}
+	public void vaciarCarrito() {
+		this.carrito.clear();
 	}
 }
