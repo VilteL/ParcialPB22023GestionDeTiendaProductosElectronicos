@@ -6,7 +6,16 @@ public class Producto {
 	private Integer codProducto;
 	private String nombre;
 	private Double precio;
+	private Integer impuesto;
 	
+	public Integer getImpuesto() {
+		return impuesto;
+	}
+
+	public void setImpuesto(Integer impuesto) {
+		this.impuesto = impuesto;
+	}
+
 	public Producto(String nombre, Double precio) {
 		this.nombre=nombre;
 		this.precio = precio;
