@@ -49,7 +49,13 @@ public class Cliente {
 	public Boolean agregarProductoAlCarrito (Producto producto) {
 		return carrito.add(producto);
 	}
+	
+	
 	public void vaciarCarrito() {
 		this.carrito.clear();
+	}
+	public void agregarProductoYaCompradoALaListaDeProductosComprados(Producto producto) {
+		this.listaDeProductosComprados.add(producto);
+		
 	}
 }
