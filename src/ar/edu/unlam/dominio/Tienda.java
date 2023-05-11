@@ -24,7 +24,7 @@ public class Tienda {
 		this.productos.add(producto);
 	}
 	
-	public void cobrarCliente(Cliente cliente) throws noHayProductosEnElCarritoException {
+	public void cobrarCliente(Cliente cliente) throws noHayProductosEnElCarritoException, clienteNoEncontradoException {
 		ArrayList<Producto> productosComprados = cliente.getCarrito();
 		
 		if(this.clientes.contains(cliente)) {
@@ -36,7 +36,7 @@ public class Tienda {
 				cliente.vaciarCarrito();
 			}
 			else throw new noHayProductosEnElCarritoException();
-		} //agregar excepcion en caso de que el cliente no este en el array de clientes.
+		} else throw new clienteNoEncontradoException();
 	}
 	
 	public Cliente buscarClientePorNombre(Cliente clienteABuscar) throws clienteNoEncontradoException {
