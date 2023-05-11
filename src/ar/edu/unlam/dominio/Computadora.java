@@ -15,7 +15,6 @@ public class Computadora extends Producto implements Vendible {
 	
 	@Override
 	public void calcularPrecioVenta() {
-		// TODO Auto-generated method stub
 		
 	}
 	
