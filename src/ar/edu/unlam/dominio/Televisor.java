@@ -2,8 +2,15 @@ package ar.edu.unlam.dominio;
 
 public class Televisor extends Producto implements Vendible {
 
-	public Televisor(String nombre, Double precio) {
+	private MarcaDeTelevisor marca;
+	
+	public Televisor(String nombre, Double precio, MarcaDeTelevisor marca) {
 		super(nombre, precio);
+		this.marca = marca;
+	}
+
+	public MarcaDeTelevisor getMarca() {
+		return marca;
 	}
 
 	@Override
