@@ -15,8 +15,26 @@ public class Televisor extends Producto implements Vendible {
 
 	@Override
 	public void calcularPrecioVenta() {
+		switch(marca) {
 		
+			case SAMSUNG:
+				this.setPrecio(getPrecio()*50/100);
+				break;
+			case LG: 
+				this.setPrecio(getPrecio()*50/100);
+				break;
+			case SONY:
+				this.setPrecio(getPrecio()*50/100);
+				break;
+			case SANYO:
+				this.setPrecio(getPrecio()*15/100);
+				break;
+			case HITACHI:
+				this.setPrecio(getPrecio()*15/100);	
+				break;
+		}
 	}
+	
 	
 	
 
