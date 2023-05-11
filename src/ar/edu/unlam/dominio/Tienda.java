@@ -6,16 +6,14 @@ public class Tienda {
 	
 	
 	private String nombre;
-	private List<Cliente> clientes;
-	private List<Producto> productos;
+	private List <Cliente> clientes;
+	private List <Producto> productos;
 	
 	public Tienda(String nombre) {
 		this.nombre= nombre;
-		
 		this.clientes = new ArrayList<>();
 		this.productos = new ArrayList<>();	
 	}
-	
 	
 	public void agregarCliente(Cliente cliente) {
 		this.clientes.add(cliente);
