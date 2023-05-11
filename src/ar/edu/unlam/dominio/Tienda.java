@@ -24,12 +24,18 @@ public class Tienda {
 		this.productos.add(producto);
 	}
 	
-	public void cobrarCliente(Cliente cliente) {
+	public void cobrarCliente(Cliente cliente) throws noHayProductosEnElCarritoException {
 		ArrayList<Producto> productosComprados = cliente.getCarrito();
 		
-		for (Producto producto : productosComprados) {
-			
-		}
+		if(this.clientes.contains(cliente)) {
+			if(productosComprados!=null){
+				for (Producto producto : productosComprados) {
+					cliente.agregarProductoYaCompradoALaListaDeProductosComprados(producto);
+				
+				}
+				cliente.vaciarCarrito();
+			}
+			else throw new noHayProductosEnElCarritoException();
+		} //agregar excepcion en caso de que el cliente no este en el array de clientes.
 	}
-	
 }

@@ -14,6 +14,7 @@ public class Cliente {
 		this.carrito = new ArrayList<>();
 	}
 
+	// Getters and Setters
 	public String getNombre() {
 		return nombre;
 	}
@@ -38,18 +39,21 @@ public class Cliente {
 		this.listaDeProductosComprados = listaDeProductosComprados;
 	}
 
-	public ArrayList <Producto> getCarrito() {
+	public ArrayList<Producto> getCarrito() {
 		return carrito;
 	}
 
-	public void setCarrito(ArrayList<Producto> carrito) {
-		this.carrito = carrito;
-	}
-	
+	//Nuestros metodos.
 	public Boolean agregarProductoAlCarrito (Producto producto) {
 		return carrito.add(producto);
 	}
+	
 	public void vaciarCarrito() {
 		this.carrito.clear();
+	}
+	
+	public void agregarProductoYaCompradoALaListaDeProductosComprados(Producto producto) {
+		this.listaDeProductosComprados.add(producto);
+		
 	}
 }
