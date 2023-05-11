@@ -25,15 +25,17 @@ public class Tienda {
 	}
 	
 	public void cobrarCliente(Cliente cliente) throws noHayProductosEnElCarritoException {
-		
 		ArrayList<Producto> productosComprados = cliente.getCarrito();
-		if(productosComprados!=null){
-			for (Producto producto : productosComprados) {
-				cliente.agregarProductoYaCompradoALaListaDeProductosComprados(producto);
+		
+		if(this.clientes.contains(cliente)) {
+			if(productosComprados!=null){
+				for (Producto producto : productosComprados) {
+					cliente.agregarProductoYaCompradoALaListaDeProductosComprados(producto);
 				
+				}
+				cliente.vaciarCarrito();
 			}
-			cliente.vaciarCarrito();
-		}
-		throw new noHayProductosEnElCarritoException();
+			else throw new noHayProductosEnElCarritoException();
+		} //agregar excepcion en caso de que el cliente no este en el array de clientes.
 	}
 }
