@@ -4,7 +4,6 @@ import java.util.*;
 
 public class Tienda {
 	
-	
 	private String nombre;
 	private List <Cliente> clientes;
 	private List <Producto> productos;
@@ -29,7 +28,6 @@ public class Tienda {
 			if(productosComprados!=null){
 				for (Producto producto : productosComprados) {
 					cliente.agregarProductoYaCompradoALaListaDeProductosComprados(producto);
-				
 				}
 				cliente.vaciarCarrito();
 			}

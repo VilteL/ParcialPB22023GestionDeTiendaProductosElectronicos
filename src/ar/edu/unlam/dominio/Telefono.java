@@ -15,7 +15,26 @@ public class Telefono extends Producto implements Vendible {
 
 	@Override
 	public void calcularPrecioVenta() {
-		
+		switch (marca) {
+		case LG:
+			this.setPrecio(getPrecio()*30/100);
+			break;
+		case SAMSUNG:
+			this.setPrecio(getPrecio()*50/100);
+			break;
+		case MOTOROLA:
+			this.setPrecio(getPrecio()*20/100);
+			break;
+		case IPHONE:
+			this.setPrecio(getPrecio()*75/100);
+			break;
+		case XIAOMI:
+			this.setPrecio(getPrecio()*40/100);
+			break;
+		case NOKIA:
+			this.setPrecio(getPrecio()*15/100);
+			break;
+		}
 	}
 
 }
