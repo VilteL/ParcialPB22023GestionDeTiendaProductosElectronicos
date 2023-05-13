@@ -36,7 +36,7 @@ public class Tienda {
 	}
 	
 	public Cliente buscarClientePorNombre(Cliente clienteABuscar) throws clienteNoEncontradoException {
-		for (Cliente cliente : clientes){
+		for (Cliente cliente : clientes) {
 			if(cliente.equals(clienteABuscar)) {
 				return cliente;
 			}

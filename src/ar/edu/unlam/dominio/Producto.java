@@ -1,21 +1,18 @@
 package ar.edu.unlam.dominio;
 
 public class Producto {
+	
 	private static Integer cantidadDeProductosCreados = 1;
 	
-	private Integer codProducto;
+	private Integer codProducto, impuesto;
 	private String nombre;
-	private Double precio;
-	private Integer impuesto;
-	
-	private Double precioEnvio;
+	private Double precio, precioEnvio;
 	private Boolean envio;
 
 	public Producto(String nombre, Double precio) {
 		this.nombre=nombre;
 		this.precio = precio;
-		this.codProducto = cantidadDeProductosCreados;
-		
+		this.codProducto = cantidadDeProductosCreados;	
 		cantidadDeProductosCreados++;
 	}
 	
@@ -26,6 +23,7 @@ public class Producto {
 	public void setImpuesto(Integer impuesto) {
 		this.impuesto = impuesto;
 	}
+	
 	public Integer getCodProducto() {
 		return codProducto;
 	}
@@ -37,12 +35,15 @@ public class Producto {
 	public String getNombre() {
 		return nombre;
 	}
+	
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
 	public Double getPrecio() {
 		return precio;
 	}
+	
 	public void setPrecio(Double precio) {
 		this.precio = precio;
 	}
@@ -62,12 +63,13 @@ public class Producto {
 	public void setEnvio(Boolean envio) {
 		this.envio = envio;
 	}
+	
 	public void sumarCostoDeEnvio(Producto producto) {
-		if(producto instanceof Televisor)
+		if (producto instanceof Televisor)
 			this.precioEnvio=555.80;
-		if(producto instanceof Telefono)
+		if (producto instanceof Telefono)
 			this.precioEnvio=100.0;
-		if(producto instanceof Computadora)
+		if (producto instanceof Computadora)
 			this.precioEnvio=700.0;
 	}
 	

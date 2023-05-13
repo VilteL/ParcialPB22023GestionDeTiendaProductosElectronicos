@@ -8,7 +8,7 @@ public class Cliente {
 	private String nombre, direccion;
 	private ArrayList <Producto> listaDeProductosComprados, carrito;
 	
-	public Cliente(Integer DNI, String nombre, String direccion) {
+	public Cliente (Integer DNI, String nombre, String direccion) {
 		this.DNI = DNI;
 		this.nombre = nombre;
 		this.direccion = direccion;
