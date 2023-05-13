@@ -111,6 +111,19 @@ public class test {
 		assertEquals(productosEsperadosEnElCarrito, productosEnElCarrito);
 		
 	}
+	@Test (expected = clienteNoEncontradoException.class)
+	public void queNoSePuedaCobrarAUnClientesSiNoExisteEnLaTienda() throws noHayProductosEnElCarritoException, clienteNoEncontradoException {
+		Tienda tienda = new Tienda("DIA");
+		
+		Producto producto1 = new Telefono("Galaxy s23", 450000.0, MarcaDeTelefono.SAMSUNG);
+		tienda.agregarProducto(producto1);
+		
+		Cliente cliente = new Cliente(111111, "pepito");
+		
+		cliente.agregarProductoAlCarrito(producto1,true);
+		tienda.cobrarCliente(cliente);
+		
+	}
 	
 
 }
