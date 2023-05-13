@@ -21,6 +21,11 @@ public class Tienda {
 			throw new clienteRepetidoException();
 		
 	}
+	
+	public Integer getCantidadDeClientesEnLaTienda() {
+		return this.clientes.size();
+	}
+	
 	public void agregarProducto(Producto producto) {
 		this.productos.add(producto);
 	}

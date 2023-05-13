@@ -6,6 +6,7 @@ public class Televisor extends Producto {
 	
 	public Televisor(String nombre, Double precio, MarcaDeTelevisor marca) {
 		super(nombre, precio);
+		this.setPrecioEnvio(800.0);
 		this.marca = marca;
 	}
 

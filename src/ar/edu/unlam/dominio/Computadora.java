@@ -6,6 +6,7 @@ public class Computadora extends Producto {
 	
 	public Computadora(String nombre, Double precio, MarcaDePC marca) {
 		super(nombre, precio);
+		this.setPrecioEnvio(500.0);
 		this.marca = marca;
 	}
 	

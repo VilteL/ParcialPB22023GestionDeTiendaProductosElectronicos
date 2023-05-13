@@ -65,7 +65,7 @@ public abstract class Producto {
 	}
 	
 	public void sumarCostoDeEnvio() {
-		if(this.getEnvio()){
+		if(this.tieneEnvio == true){
 			this.precio+=this.precioEnvio;
 		}
 	}
