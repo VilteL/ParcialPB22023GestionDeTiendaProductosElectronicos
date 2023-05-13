@@ -14,8 +14,12 @@ public class Tienda {
 		this.productos = new ArrayList<>();	
 	}
 	
-	public void agregarCliente(Cliente cliente) {
-		this.clientes.add(cliente);
+	public void agregarCliente(Cliente cliente) throws clienteRepetidoException {
+		if(!this.clientes.contains(cliente))
+			this.clientes.add(cliente);
+		else
+			throw new clienteRepetidoException();
+		
 	}
 	public void agregarProducto(Producto producto) {
 		this.productos.add(producto);
@@ -23,7 +27,6 @@ public class Tienda {
 	
 	public void cobrarCliente(Cliente cliente) throws noHayProductosEnElCarritoException, clienteNoEncontradoException {
 		ArrayList<Producto> productosComprados = cliente.getCarrito();
-		
 		
 		if(this.clientes.contains(cliente)) {
 			if(productosComprados!=null){
