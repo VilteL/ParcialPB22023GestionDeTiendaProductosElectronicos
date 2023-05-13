@@ -29,7 +29,7 @@ public class Tienda {
 		ArrayList<Producto> productosComprados = cliente.getCarrito();
 		
 		if(this.clientes.contains(cliente)) {
-			if(productosComprados!=null){
+			if(productosComprados.size()!=0){
 				for (Producto producto : productosComprados) {
 					
 					cliente.agregarProductoYaCompradoALaListaDeProductosComprados(producto);

@@ -5,13 +5,12 @@ import java.util.*;
 public class Cliente {
 	
 	private Integer DNI;
-	private String nombre, direccion;
+	private String nombre;
 	private ArrayList <Producto> listaDeProductosComprados, carrito;
 	
-	public Cliente(Integer DNI, String nombre, String direccion) {
+	public Cliente(Integer DNI, String nombre) {
 		this.DNI = DNI;
 		this.nombre = nombre;
-		this.direccion = direccion;
 		this.listaDeProductosComprados = new ArrayList<>();
 		this.carrito = new ArrayList<>();
 	}
@@ -33,13 +32,7 @@ public class Cliente {
 		this.nombre = nombre;
 	}
 
-	public String getDireccion() {
-		return direccion;
-	}
-
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
+	
 
 	public ArrayList <Producto> getListaDeProductosComprados() {
 		return listaDeProductosComprados;
