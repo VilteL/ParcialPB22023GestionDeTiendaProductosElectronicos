@@ -56,4 +56,14 @@ public class Tienda {
 	public Integer cantidadDeProductosEnLaTienda() {
 		return this.productos.size();
 	}
+	
+	public Cliente conseguirClienteConMayorCantidadDeProductosComprados() {
+		
+		Cliente clienteConMayorCantidadProductos  = this.clientes.stream()
+				.max(Comparator.comparingInt(cliente -> cliente.getCantidadDeProductosEnElCarrito()))
+				.orElse(null);
+		
+		return clienteConMayorCantidadProductos;
+	}
+	
 }
