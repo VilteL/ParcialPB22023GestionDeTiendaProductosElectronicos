@@ -73,5 +73,13 @@ public class Cliente {
 	public Integer getCantidadDeProductosEnElCarrito() {
 		return this.carrito.size();
 	}
+	public Double getCantidadDineroGastado() {
+		Double cantidadGastada = 0.0;
+		
+		for (Producto producto : this.listaDeProductosComprados) {
+			cantidadGastada+= producto.getPrecio();
+		}
+		return cantidadGastada;
+	}
 
 }
