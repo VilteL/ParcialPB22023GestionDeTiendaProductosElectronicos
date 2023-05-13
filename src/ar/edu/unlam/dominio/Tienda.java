@@ -59,7 +59,6 @@ public class Tienda {
 	
 
 	public Cliente conseguirClienteConMayorCantidadDeProductosComprados() {
-		
 		Cliente clienteConMayorCantidadProductos  = this.clientes.stream()
 				.max(Comparator.comparingInt(cliente -> cliente.getCantidadDeProductosEnElCarrito()))
 				.orElse(null);
@@ -78,11 +77,10 @@ public class Tienda {
 		} return clienteConLaMayorCantidadDeProductos;
 	} */
 	
-	public Cliente conseguirClienteQueHayaGastadoMas() {
+	public Cliente conseguirClienteQueHayaGastadoMas() throws NoHayProductosCompradosException {
 		Cliente clienteQueGastoMas = this.clientes.stream()
 				.max(Comparator.comparingDouble(c -> c.getCantidadDineroGastado()))
 				.orElse(null);
-		
 		return clienteQueGastoMas;
 	}
 }
