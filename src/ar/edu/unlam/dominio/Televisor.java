@@ -1,6 +1,6 @@
 package ar.edu.unlam.dominio;
 
-public class Televisor extends Producto implements Vendible {
+public class Televisor extends Producto {
 
 	private MarcaDeTelevisor marca;
 	
@@ -14,7 +14,8 @@ public class Televisor extends Producto implements Vendible {
 	}
 
 	@Override
-	public void calcularPrecioVenta() {
+	public void calcularPrecioFinalVenta() {
+		sumarCostoDeEnvio();
 		switch(marca) {
 		
 			case SAMSUNG:

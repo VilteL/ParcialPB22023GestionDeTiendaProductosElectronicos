@@ -1,6 +1,6 @@
 package ar.edu.unlam.dominio;
 
-public class Telefono extends Producto implements Vendible {
+public class Telefono extends Producto  {
 
 	private MarcaDeTelefono marca;
 	
@@ -14,8 +14,10 @@ public class Telefono extends Producto implements Vendible {
 	}
 
 	@Override
-	public void calcularPrecioVenta() {
-		switch (marca) {
+	public void calcularPrecioFinalVenta() {
+		
+		sumarCostoDeEnvio();
+		switch (marca){
 		case LG:
 			this.setPrecio(getPrecio()*30/100);
 			break;
