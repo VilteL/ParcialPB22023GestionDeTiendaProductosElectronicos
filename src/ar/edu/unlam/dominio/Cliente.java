@@ -8,7 +8,9 @@ public class Cliente {
 	private String nombre;
 	private ArrayList <Producto> listaDeProductosComprados, carrito;
 	
-	public Cliente(Integer DNI, String nombre) {
+
+	public Cliente (Integer DNI, String nombre) {
+
 		this.DNI = DNI;
 		this.nombre = nombre;
 		this.listaDeProductosComprados = new ArrayList<>();
@@ -32,7 +34,6 @@ public class Cliente {
 		this.nombre = nombre;
 	}
 
-	
 
 	public ArrayList <Producto> getListaDeProductosComprados() {
 		return listaDeProductosComprados;
@@ -47,8 +48,17 @@ public class Cliente {
 	}
 
 	//Nuestros metodos.
-	public Boolean agregarProductoAlCarrito (Producto producto) {
-		producto.calcularPrecioFinalVenta();
+	public Boolean agregarProductoAlCarrito (Producto producto, Boolean seEnvia) {
+		producto.setEnvio(seEnvia);
+		if (producto instanceof Televisor) {
+			((Televisor)producto).calcularPrecioFinalVenta();
+		}
+		if (producto instanceof Telefono) {
+			((Telefono)producto).calcularPrecioFinalVenta();
+		}
+		if (producto instanceof Computadora) {
+			((Computadora)producto).calcularPrecioFinalVenta();
+		}
 		return carrito.add(producto);
 	}
 	
@@ -60,5 +70,8 @@ public class Cliente {
 		this.listaDeProductosComprados.add(producto);
 	}
 	
-	
+	public Integer getCantidadDeProductosEnElCarrito() {
+		return this.carrito.size();
+	}
+
 }

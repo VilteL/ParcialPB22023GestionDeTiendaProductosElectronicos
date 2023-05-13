@@ -6,6 +6,7 @@ public class Telefono extends Producto  {
 	
 	public Telefono(String nombre, Double precio, MarcaDeTelefono marca) {
 		super(nombre, precio);
+		this.setPrecioEnvio(2000.0);
 		this.marca = marca;
 	}
 

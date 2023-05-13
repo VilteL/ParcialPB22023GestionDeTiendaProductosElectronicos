@@ -21,6 +21,11 @@ public class Tienda {
 			throw new clienteRepetidoException();
 		
 	}
+	
+	public Integer getCantidadDeClientesEnLaTienda() {
+		return this.clientes.size();
+	}
+	
 	public void agregarProducto(Producto producto) {
 		this.productos.add(producto);
 	}
@@ -41,7 +46,7 @@ public class Tienda {
 	}
 	
 	public Cliente buscarClientePorNombre(Cliente clienteABuscar) throws clienteNoEncontradoException {
-		for (Cliente cliente : clientes){
+		for (Cliente cliente : clientes) {
 			if(cliente.equals(clienteABuscar)) {
 				return cliente;
 			}

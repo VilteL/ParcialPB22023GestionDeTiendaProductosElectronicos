@@ -3,6 +3,7 @@ package Test;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import ar.edu.unlam.dominio.*;
 
 import ar.edu.unlam.dominio.Cliente;
 import ar.edu.unlam.dominio.MarcaDeTelefono;
@@ -14,6 +15,41 @@ import ar.edu.unlam.dominio.clienteRepetidoException;
 import ar.edu.unlam.dominio.noHayProductosEnElCarritoException;
 
 public class test {
+
+	@Test
+	public void QueSePuedaAgregarUnClienteALaTienda() throws clienteRepetidoException {
+		Cliente cliente = new Cliente (30456729, "Pepe Argento");
+		Tienda tienda = new Tienda ("Coppel");
+		
+		tienda.agregarCliente(cliente);
+		
+		assertEquals ((Integer)1,tienda.getCantidadDeClientesEnLaTienda());
+	}
+	
+	@Test
+	public void QueElClientePuedaAgregarUnProductoAlCarrito() {
+		Cliente cliente = new Cliente (32134132, "Aquiles Bailo");
+		Producto Telefono = new Telefono ("Galaxy S22", 154213.30, MarcaDeTelefono.SAMSUNG);
+		
+		cliente.agregarProductoAlCarrito(Telefono, true);
+		
+		assertEquals((Integer)1,cliente.getCantidadDeProductosEnElCarrito());
+	}
+
+	@Test
+	public void QueSiNoSeEncuentraElClienteACobrarSeLanceLaExcepcion() {
+		
+	}
+
+	@Test
+	public void QueSePuedaEncontrarUnClienteBuscado() {
+		
+	}
+
+	@Test
+	public void QueSiElCarritoEstaVacioSeLanceLaExcepcion() {
+	
+	}
 
 	@Test
 	public void queSePuedaAgregarUnProductoAlStockDeLaTienda() {
@@ -51,7 +87,7 @@ public class test {
 			e.printStackTrace();
 		}
 		
-		cliente.agregarProductoAlCarrito(producto1);
+		cliente.agregarProductoAlCarrito(producto1,true);
 		try {
 			tienda.cobrarCliente(cliente);
 		} catch (noHayProductosEnElCarritoException | clienteNoEncontradoException e) {
