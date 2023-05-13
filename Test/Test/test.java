@@ -5,17 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import ar.edu.unlam.dominio.*;
 
-
-import ar.edu.unlam.dominio.Cliente;
-import ar.edu.unlam.dominio.MarcaDeTelefono;
-import ar.edu.unlam.dominio.Producto;
-import ar.edu.unlam.dominio.Telefono;
-import ar.edu.unlam.dominio.Tienda;
-import ar.edu.unlam.dominio.clienteNoEncontradoException;
-import ar.edu.unlam.dominio.clienteRepetidoException;
-import ar.edu.unlam.dominio.noHayProductosEnElCarritoException;
-
-
 public class test {
 
 	@Test
@@ -49,13 +38,31 @@ public class test {
 	}
 
 	@Test
-	public void QueSePuedaEncontrarUnClienteBuscado() {
+	public void QueSePuedaEncontrarUnClienteBuscado() throws clienteRepetidoException, clienteNoEncontradoException {
+		Cliente cliente1 = new Cliente (34959942, "Esteban Quito");
+		Tienda tienda = new Tienda ("Coppel");
 		
+		tienda.agregarCliente(cliente1);
+		
+		Cliente clienteEsperado = cliente1;
+		Cliente clienteBuscado = tienda.buscarClientePorNombre(cliente1);
+		
+		assertEquals(clienteEsperado, clienteBuscado);
 	}
 
-	@Test
-	public void QueSiElCarritoEstaVacioSeLanceLaExcepcion() {
-	
+	@Test (expected = noHayProductosEnElCarritoException.class)
+	public void QueSiElCarritoEstaVacioCuandoSeCobreSeLanceLaExcepcion() throws noHayProductosEnElCarritoException, clienteNoEncontradoException {
+		Cliente cliente1 = new Cliente (34959942, "Esteban Quito");
+		Tienda tienda = new Tienda ("Coppel");
+		
+		try {
+			tienda.agregarCliente(cliente1);
+		} catch (clienteRepetidoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		tienda.cobrarCliente(cliente1);
 	}
 
 	@Test
@@ -70,6 +77,7 @@ public class test {
 		
 		assertEquals(valorEsperado, valorDevuelto);
 	}
+	
 	@Test (expected = clienteRepetidoException.class)
 	public void queSiSeIntentaAgregarUnClienteRepetidoSeLanceExcepcion() throws clienteRepetidoException {
 		Tienda tienda = new Tienda("DIA");
