@@ -56,4 +56,15 @@ public class Tienda {
 	public Integer cantidadDeProductosEnLaTienda() {
 		return this.productos.size();
 	}
+	
+	/*public Cliente getClienteConMayorCantidadDeProductosComprados() {
+		Cliente clienteConLaMayorCantidadDeProductos = null;
+		Integer mayorCantidadDeProductos = 0;
+		for (Cliente cliente : clientes) {
+			if (cliente.getCantidadDeProductosEnElCarrito() > mayorCantidadDeProductos) {
+				clienteConLaMayorCantidadDeProductos = cliente;
+				mayorCantidadDeProductos = cliente.getCantidadDeProductosEnElCarrito();
+			}
+		} return clienteConLaMayorCantidadDeProductos;
+	} */
 }
