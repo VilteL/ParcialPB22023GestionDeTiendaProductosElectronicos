@@ -1,6 +1,6 @@
 package ar.edu.unlam.dominio;
 
-public class Producto {
+public abstract class Producto {
 	private static Integer cantidadDeProductosCreados = 1;
 	
 	private Integer codProducto;
@@ -76,6 +76,6 @@ public class Producto {
 			this.precio+=this.precioEnvio;
 		}
 	}
-	
+	public abstract void calcularPrecioFinalVenta();
 	
 }

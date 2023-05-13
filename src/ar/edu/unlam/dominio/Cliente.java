@@ -55,6 +55,7 @@ public class Cliente {
 
 	//Nuestros metodos.
 	public Boolean agregarProductoAlCarrito (Producto producto) {
+		producto.calcularPrecioFinalVenta();
 		return carrito.add(producto);
 	}
 	

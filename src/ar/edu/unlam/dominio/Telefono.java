@@ -1,6 +1,6 @@
 package ar.edu.unlam.dominio;
 
-public class Telefono extends Producto implements Vendible {
+public class Telefono extends Producto  {
 
 	private MarcaDeTelefono marca;
 	

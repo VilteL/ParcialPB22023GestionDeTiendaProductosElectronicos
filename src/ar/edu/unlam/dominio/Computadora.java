@@ -1,6 +1,6 @@
 package ar.edu.unlam.dominio;
 
-public class Computadora extends Producto implements Vendible {
+public class Computadora extends Producto {
 	
 	private MarcaDePC marca;
 	
