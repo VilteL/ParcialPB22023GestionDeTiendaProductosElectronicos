@@ -162,8 +162,8 @@ public class test {
 		Cliente clienteDevuelto = tienda.conseguirClienteConMayorCantidadDeProductosComprados();
 	
 		assertEquals(clienteEsperado, clienteDevuelto);
-	
 	}
+	
 	
 
 }

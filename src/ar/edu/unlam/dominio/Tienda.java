@@ -77,7 +77,7 @@ public class Tienda {
 		} return clienteConLaMayorCantidadDeProductos;
 	} */
 	
-	public Cliente conseguirClienteQueHayaGastadoMas() throws NoHayProductosCompradosException {
+	public Cliente conseguirClienteQueHayaGastadoMas(){
 		Cliente clienteQueGastoMas = this.clientes.stream()
 				.max(Comparator.comparingDouble(c -> c.getCantidadDineroGastado()))
 				.orElse(null);
