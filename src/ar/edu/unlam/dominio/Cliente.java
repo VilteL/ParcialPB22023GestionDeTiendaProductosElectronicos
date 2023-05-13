@@ -70,5 +70,5 @@ public class Cliente {
 	public Integer getCantidadDeProductosEnElCarrito() {
 		return this.carrito.size();
 	}
-	
+
 }
