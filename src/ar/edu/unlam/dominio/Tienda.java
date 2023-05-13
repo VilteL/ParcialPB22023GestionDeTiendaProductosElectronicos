@@ -48,4 +48,7 @@ public class Tienda {
 		}
 		throw new clienteNoEncontradoException();
 	}
+	public Integer cantidadDeProductosEnLaTienda() {
+		return this.productos.size();
+	}
 }
