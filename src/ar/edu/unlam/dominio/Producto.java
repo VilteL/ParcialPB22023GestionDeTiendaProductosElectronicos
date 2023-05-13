@@ -9,7 +9,7 @@ public class Producto {
 	private Integer impuesto;
 	
 	private Double precioEnvio;
-	private Boolean envio;
+	private Boolean tieneEnvio;
 
 	public Producto(String nombre, Double precio) {
 		this.nombre=nombre;
@@ -56,13 +56,14 @@ public class Producto {
 	}
 
 	public Boolean getEnvio() {
-		return envio;
+		return tieneEnvio;
 	}
 
 	public void setEnvio(Boolean envio) {
-		this.envio = envio;
+		this.tieneEnvio = envio;
 	}
-	public void sumarCostoDeEnvio(Producto producto) {
+	public void calcularCostoDeEnvio(Producto producto) {
+		
 		if(producto instanceof Televisor)
 			this.precioEnvio=555.80;
 		if(producto instanceof Telefono)
@@ -70,5 +71,11 @@ public class Producto {
 		if(producto instanceof Computadora)
 			this.precioEnvio=700.0;
 	}
+	public void sumarCostoDeEnvio() {
+		if(this.getEnvio()){
+			this.precio+=this.precioEnvio;
+		}
+	}
+	
 	
 }

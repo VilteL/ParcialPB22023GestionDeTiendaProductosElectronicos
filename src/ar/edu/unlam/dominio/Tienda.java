@@ -24,9 +24,11 @@ public class Tienda {
 	public void cobrarCliente(Cliente cliente) throws noHayProductosEnElCarritoException, clienteNoEncontradoException {
 		ArrayList<Producto> productosComprados = cliente.getCarrito();
 		
+		
 		if(this.clientes.contains(cliente)) {
 			if(productosComprados!=null){
 				for (Producto producto : productosComprados) {
+					
 					cliente.agregarProductoYaCompradoALaListaDeProductosComprados(producto);
 				}
 				cliente.vaciarCarrito();

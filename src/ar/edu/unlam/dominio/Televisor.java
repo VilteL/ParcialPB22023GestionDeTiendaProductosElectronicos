@@ -14,7 +14,8 @@ public class Televisor extends Producto implements Vendible {
 	}
 
 	@Override
-	public void calcularPrecioVenta() {
+	public void calcularPrecioFinalVenta() {
+		sumarCostoDeEnvio();
 		switch(marca) {
 		
 			case SAMSUNG:

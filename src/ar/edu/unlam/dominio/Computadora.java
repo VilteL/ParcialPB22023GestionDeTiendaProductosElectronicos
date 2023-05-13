@@ -14,12 +14,15 @@ public class Computadora extends Producto implements Vendible {
 	}
 	
 	@Override
-	public void calcularPrecioVenta() {
+	public void calcularPrecioFinalVenta() {
+		
+		sumarCostoDeEnvio();
+		
 		if(this.marca.equals(MarcaDePC.BANGHO)) {
-			super.setPrecio(getPrecio()*10/100);
+			this.setPrecio(getPrecio()*10/100);
 		}
 		else {
-			super.setPrecio(getPrecio()*30/100);
+			this.setPrecio(getPrecio()*30/100);
 		}
 	}
 	
