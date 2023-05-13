@@ -5,11 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import ar.edu.unlam.dominio.*;
 
-import ar.edu.unlam.dominio.MarcaDeTelefono;
-import ar.edu.unlam.dominio.Producto;
-import ar.edu.unlam.dominio.Telefono;
-import ar.edu.unlam.dominio.Tienda;
-
 public class test {
 
 	@Test
@@ -32,9 +27,14 @@ public class test {
 		assertEquals((Integer)1,cliente.getCantidadDeProductosEnElCarrito());
 	}
 
-	@Test
-	public void QueSiNoSeEncuentraElClienteACobrarSeLanceLaExcepcion() {
+	@Test (expected = clienteNoEncontradoException.class)
+	public void QueSiNoSeEncuentraElClienteACobrarSeLanceLaExcepcion() throws clienteRepetidoException, noHayProductosEnElCarritoException, clienteNoEncontradoException {
+		Cliente cliente1 = new Cliente (34959942, "Esteban Quito");
+		Cliente cliente2 = new Cliente (45433422, "Hen");
+		Tienda tienda = new Tienda ("Coppel");
 		
+		tienda.agregarCliente(cliente1);
+		tienda.cobrarCliente(cliente2);
 	}
 
 	@Test
