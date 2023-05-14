@@ -165,5 +165,8 @@ public class test {
 	
 	}
 	
-
+	@Test  
+	public void queSeEncuentreAlClienteQueHayaCompradoMasProductos() {
+		
+	}
 }
