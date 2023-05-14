@@ -162,7 +162,39 @@ public class test {
 		Cliente clienteDevuelto = tienda.conseguirClienteConMayorCantidadDeProductosComprados();
 	
 		assertEquals(clienteEsperado, clienteDevuelto);
+	}
+	@Test public void queSeEncuentreAlClienteQueHayaGastadoMas() {
+		
+		Tienda tienda = new Tienda("DIA");
+		
+		Producto producto1 = new Telefono("Galaxy s23", 450000.0, MarcaDeTelefono.SAMSUNG);
+		tienda.agregarProducto(producto1);
+		Cliente cliente = new Cliente(111111, "pepito");
+		
+		Cliente cliente2 = new Cliente(99999, "Ricardo");
+		
+		try {
+			tienda.agregarCliente(cliente);
+			tienda.agregarCliente(cliente2);
+		} catch (clienteRepetidoException e) {
+			e.printStackTrace();
+		}
+		cliente.agregarProductoAlCarrito(producto1,true);
+		cliente.agregarProductoAlCarrito(producto1,true);
+		cliente.agregarProductoAlCarrito(producto1,true);
+		
+		cliente2.agregarProductoAlCarrito(producto1,true);
+		
+		try {
+			tienda.cobrarCliente(cliente);
+			tienda.cobrarCliente(cliente2);
+		} catch (noHayProductosEnElCarritoException | clienteNoEncontradoException e) {
+			e.printStackTrace();
+		}
+		Cliente clienteEsperado = cliente;
+		Cliente clienteDevuelto = tienda.conseguirClienteQueHayaGastadoMas();
 	
+		assertEquals(clienteEsperado, clienteDevuelto);
 	}
 	
 	@Test  
