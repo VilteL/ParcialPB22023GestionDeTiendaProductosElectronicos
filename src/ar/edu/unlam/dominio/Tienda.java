@@ -14,11 +14,11 @@ public class Tienda {
 		this.productos = new ArrayList<>();	
 	}
 	
-	public void agregarCliente(Cliente cliente) throws clienteRepetidoException {
+	public void agregarCliente(Cliente cliente) throws ClienteRepetidoException {
 		if(!this.clientes.contains(cliente))
 			this.clientes.add(cliente);
 		else
-			throw new clienteRepetidoException();
+			throw new ClienteRepetidoException();
 		
 	}
 	
@@ -30,7 +30,7 @@ public class Tienda {
 		this.productos.add(producto);
 	}
 	
-	public void cobrarCliente(Cliente cliente) throws noHayProductosEnElCarritoException, clienteNoEncontradoException {
+	public void cobrarCliente(Cliente cliente) throws NoHayProductosEnElCarritoException, ClienteNoEncontradoException {
 		ArrayList<Producto> productosComprados = cliente.getCarrito();
 		
 		if(this.clientes.contains(cliente)) {
@@ -41,17 +41,17 @@ public class Tienda {
 				}
 				cliente.vaciarCarrito();
 			}
-			else throw new noHayProductosEnElCarritoException();
-		} else throw new clienteNoEncontradoException();
+			else throw new NoHayProductosEnElCarritoException();
+		} else throw new ClienteNoEncontradoException();
 	}
 	
-	public Cliente buscarClientePorNombre(Cliente clienteABuscar) throws clienteNoEncontradoException {
+	public Cliente buscarClientePorNombre(Cliente clienteABuscar) throws ClienteNoEncontradoException {
 		for (Cliente cliente : clientes) {
 			if(cliente.equals(clienteABuscar)) {
 				return cliente;
 			}
 		}
-		throw new clienteNoEncontradoException();
+		throw new ClienteNoEncontradoException();
 	}
 	public Integer cantidadDeProductosEnLaTienda() {
 		return this.productos.size();
