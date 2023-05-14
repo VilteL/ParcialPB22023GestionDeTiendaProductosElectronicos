@@ -8,7 +8,7 @@ import ar.edu.unlam.dominio.*;
 public class test {
 
 	@Test
-	public void QueSePuedaAgregarUnClienteALaTienda() throws clienteRepetidoException {
+	public void QueSePuedaAgregarUnClienteALaTienda() throws ClienteRepetidoException {
 		Cliente cliente = new Cliente (30456729, "Pepe Argento");
 		Tienda tienda = new Tienda ("Coppel");
 		
@@ -27,8 +27,8 @@ public class test {
 		assertEquals((Integer)1,cliente.getCantidadDeProductosEnElCarrito());
 	}
 
-	@Test (expected = clienteNoEncontradoException.class)
-	public void QueSiNoSeEncuentraElClienteACobrarSeLanceLaExcepcion() throws clienteRepetidoException, noHayProductosEnElCarritoException, clienteNoEncontradoException {
+	@Test (expected = ClienteNoEncontradoException.class)
+	public void QueSiNoSeEncuentraElClienteACobrarSeLanceLaExcepcion() throws ClienteRepetidoException, NoHayProductosEnElCarritoException, ClienteNoEncontradoException {
 		Cliente cliente1 = new Cliente (34959942, "Esteban Quito");
 		Cliente cliente2 = new Cliente (45433422, "Hen");
 		Tienda tienda = new Tienda ("Coppel");
@@ -38,7 +38,7 @@ public class test {
 	}
 
 	@Test
-	public void QueSePuedaEncontrarUnClienteBuscado() throws clienteRepetidoException, clienteNoEncontradoException {
+	public void QueSePuedaEncontrarUnClienteBuscado() throws ClienteRepetidoException, ClienteNoEncontradoException {
 		Cliente cliente1 = new Cliente (34959942, "Esteban Quito");
 		Tienda tienda = new Tienda ("Coppel");
 		
@@ -50,14 +50,14 @@ public class test {
 		assertEquals(clienteEsperado, clienteBuscado);
 	}
 
-	@Test (expected = noHayProductosEnElCarritoException.class)
-	public void QueSiElCarritoEstaVacioCuandoSeCobreSeLanceLaExcepcion() throws noHayProductosEnElCarritoException, clienteNoEncontradoException {
+	@Test (expected = NoHayProductosEnElCarritoException.class)
+	public void QueSiElCarritoEstaVacioCuandoSeCobreSeLanceLaExcepcion() throws NoHayProductosEnElCarritoException, ClienteNoEncontradoException {
 		Cliente cliente1 = new Cliente (34959942, "Esteban Quito");
 		Tienda tienda = new Tienda ("Coppel");
 		
 		try {
 			tienda.agregarCliente(cliente1);
-		} catch (clienteRepetidoException e) {
+		} catch (ClienteRepetidoException e) {
 			e.printStackTrace();
 		}
 		
@@ -77,8 +77,8 @@ public class test {
 		assertEquals(valorEsperado, valorDevuelto);
 	}
 	
-	@Test (expected = clienteRepetidoException.class)
-	public void queSiSeIntentaAgregarUnClienteRepetidoSeLanceExcepcion() throws clienteRepetidoException {
+	@Test (expected = ClienteRepetidoException.class)
+	public void queSiSeIntentaAgregarUnClienteRepetidoSeLanceExcepcion() throws ClienteRepetidoException {
 		Tienda tienda = new Tienda("DIA");
 		
 		Cliente cliente = new Cliente(111111, "pepito");
@@ -97,14 +97,14 @@ public class test {
 		Cliente cliente = new Cliente(111111, "pepito");
 		try {
 			tienda.agregarCliente(cliente);
-		} catch (clienteRepetidoException e) {
+		} catch (ClienteRepetidoException e) {
 			e.printStackTrace();
 		}
 		
 		cliente.agregarProductoAlCarrito(producto1,true);
 		try {
 			tienda.cobrarCliente(cliente);
-		} catch (noHayProductosEnElCarritoException | clienteNoEncontradoException e) {
+		} catch (NoHayProductosEnElCarritoException | ClienteNoEncontradoException e) {
 			e.printStackTrace();
 		}
 		Integer productosCompradosEsperados = 1;
@@ -118,8 +118,8 @@ public class test {
 		assertEquals(productosEsperadosEnElCarrito, productosEnElCarrito);
 		
 	}
-	@Test (expected = clienteNoEncontradoException.class)
-	public void queNoSePuedaCobrarAUnClientesSiNoExisteEnLaTienda() throws noHayProductosEnElCarritoException, clienteNoEncontradoException {
+	@Test (expected = ClienteNoEncontradoException.class)
+	public void queNoSePuedaCobrarAUnClientesSiNoExisteEnLaTienda() throws NoHayProductosEnElCarritoException, ClienteNoEncontradoException {
 		Tienda tienda = new Tienda("DIA");
 		
 		Producto producto1 = new Telefono("Galaxy s23", 450000.0, MarcaDeTelefono.SAMSUNG);
@@ -143,7 +143,7 @@ public class test {
 		try {
 			tienda.agregarCliente(cliente);
 			tienda.agregarCliente(cliente2);
-		} catch (clienteRepetidoException e) {
+		} catch (ClienteRepetidoException e) {
 			e.printStackTrace();
 		}
 		cliente.agregarProductoAlCarrito(producto1,true);
@@ -155,7 +155,7 @@ public class test {
 		try {
 			tienda.cobrarCliente(cliente);
 			tienda.cobrarCliente(cliente2);
-		} catch (noHayProductosEnElCarritoException | clienteNoEncontradoException e) {
+		} catch (NoHayProductosEnElCarritoException | ClienteNoEncontradoException e) {
 			e.printStackTrace();
 		}
 		Cliente clienteEsperado = cliente;
@@ -176,7 +176,7 @@ public class test {
 		try {
 			tienda.agregarCliente(cliente);
 			tienda.agregarCliente(cliente2);
-		} catch (clienteRepetidoException e) {
+		} catch (ClienteRepetidoException e) {
 			e.printStackTrace();
 		}
 		cliente.agregarProductoAlCarrito(producto1,true);
@@ -188,7 +188,7 @@ public class test {
 		try {
 			tienda.cobrarCliente(cliente);
 			tienda.cobrarCliente(cliente2);
-		} catch (noHayProductosEnElCarritoException | clienteNoEncontradoException e) {
+		} catch (NoHayProductosEnElCarritoException | ClienteNoEncontradoException e) {
 			e.printStackTrace();
 		}
 		Cliente clienteEsperado = cliente;
@@ -197,5 +197,4 @@ public class test {
 		assertEquals(clienteEsperado, clienteDevuelto);
 	}
 	
-
 }
